@@ -99,7 +99,16 @@ class Raster_Utils:
   
   def get_raster_infos(self,raster_path):
       """ Returns infos (raster_array,xgrid,ygrid) from a contry mask reference array"""
-      raster = rasterio.open(raster_path)
+      
+      # While required because of an occasional error. Sometimes happens, sometimes not.
+      check_read = 0
+            while check_read == 0:
+	          try:
+	                raster = rasterio.open(raster_path)
+	                check_read = 1
+                  except rasterio.errors.RasterioIOError:
+	                check_read = 0
+	                
       resolution = raster.meta['transform'][0]
       raster_array = self._read_and_check(raster,raster_path.split("/")[-1])
       xgrid = np.arange(self.x_min_limit, self.x_min_limit+raster_array.shape[1]*resolution, resolution)
