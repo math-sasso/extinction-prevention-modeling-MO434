@@ -103,11 +103,11 @@ class Raster_Utils:
       # While required because of an occasional error. Sometimes happens, sometimes not.
       check_read = 0
       while check_read == 0:
-            try:
-                  raster = rasterio.open(raster_path)
-                  check_read = 1
-            except rasterio.errors.RasterioIOError:
-                  check_read = 0
+          try:
+              raster = rasterio.open(raster_path)
+              check_read = 1
+          except rasterio.errors.RasterioIOError:
+              check_read = 0
 	                
       resolution = raster.meta['transform'][0]
       raster_array = self._read_and_check(raster,raster_path.split("/")[-1])
