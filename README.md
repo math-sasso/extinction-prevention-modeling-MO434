@@ -4,9 +4,9 @@ This repository contains the final project for the subject MO434 (Deep Learning)
 
 ## Description
 
-This project is a SDM (Species Distribution Modelling) focused on Brazilian vegetal species applied to agriculture. To create the species distributions species occurrences data were extracted from GBIF and environment data were extracted from the bases [ENVIREM](https://envirem.github.io/) and [BIOCLIM](https://www.worldclim.org/data/worldclim21.html).
+This project is a SDM (Species Distribution Modelling) focused on endangered Brazilian species . To create the species distributions species occurrences data were extracted from GBIF and environment data were extracted from the bases [ENVIREM](https://envirem.github.io/) and [BIOCLIM](https://www.worldclim.org/data/worldclim21.html).
 
-The statistical technique used was the fully connected Deep Neural Networks. To measure the performance of the algorithm the metrics used were ROC (Receiver Operating Characteristic Curve) and AUC (Area Under Curve). To calculate those metric data were separated in 4 kfolds with the occurrences inference data was defined positives and 100000 randomly picked habitat data defined as negatives.
+The statistical technique used was the fully connected Deep Neural Networks with a neuron on the last layer that has a sigmoid activation function to classify the input as present or absent. To measure the performance of the algorithm the metrics used were ROC (Receiver Operating Characteristic Curve) and AUC (Area Under Curve). To calculate those metric data were separated in 4 kfolds.
 
 The project uses multiple strategies to overcome computer resources limitations to big data analyses. The steps on the section Getting Started will detail everything you must to to replicate the project.
 
